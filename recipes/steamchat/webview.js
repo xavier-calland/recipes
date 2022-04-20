@@ -30,17 +30,13 @@ module.exports = Ferdi => {
 
   Ferdi.loop(getMessages);
 
-  document.addEventListener(
-    'click',
-    event => {
-      const link = event.target.closest('a[href^="http"]');
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href^="http"]');
 
-      if (link && link.getAttribute('target') === '_top') {
-        event.preventDefault();
-        event.stopPropagation();
-        Ferdi.openNewWindow(link.getAttribute('href'));
-      }
-    },
-    true,
-  );
+    if (link && link.getAttribute('target') === '_top') {
+      event.preventDefault();
+      event.stopPropagation();
+      Ferdi.openNewWindow(link.getAttribute('href'));
+    }
+  }, true);
 };
